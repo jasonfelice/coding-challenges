@@ -1,16 +1,22 @@
 function birthday(s, d, m) {
-  let count = 0;
-  if (s.length >= m) {
-    for(let i in s) {
-      const ways = [];
-      for(let j = 0; j <= m; j++) {
-          ways.push(s[j]);
-      }
-    if (ways.reduce((a, b) => a + b) === d) {
-      count++;
+    let num = s;
+    let nums = [];
+    let count = 0;
+    const add = (arr) => arr.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < s.length; i++) {
+      let arrayElement = num.slice(0 + i, m + i);
+      nums.push(arrayElement);
     }
-      s.shift();
+    if(num.length===1 && num[0]===d){
+        count++;
+    }else{
+      nums.forEach((el) => {
+          if (add(el) === d) {
+            count++;
+          }
+        });
     }
-  }
-  return count;
+    
+  
+    return count;
 }
