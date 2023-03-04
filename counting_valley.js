@@ -6,4 +6,5 @@ function countingValleys(steps, path) {
       if(path === "U") count++;
       if(path === "D") count--;
    })
+  return valleys;
 }
