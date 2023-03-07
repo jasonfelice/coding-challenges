@@ -1,10 +1,11 @@
 function countingValleys(steps, path) {
-   let count = 0;
-   let valleys = 0;
-   path = path.split("");
-   path.forEach(path => {
-      if(path === "U") count++;
-      if(path === "D") count--;
-   })
+  let valleys = 0;
+  let count = {c: 0, p: 0};
+  for(let i = 0; i < steps; i++) {
+      count.p = count.c;
+      if (path[i] === "U") count.c++;
+      if (path[i] === "D") count.c--;
+      if (count.c < 0 && count.p == 0) valleys++;
+  }
   return valleys;
 }
