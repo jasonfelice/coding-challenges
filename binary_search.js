@@ -1,6 +1,3 @@
-// Online Javascript Editor for free
-// Write, Edit and Run your Javascript code using JS Online Compiler
-
 function binary_serach (list, target) {
     // Return index of target else null
    let first = 0;
@@ -10,7 +7,7 @@ function binary_serach (list, target) {
         let midpoint = Math.floor((first+last)/2);
         
         if (list[midpoint] === target) {
-            return midpoint;
+            return `${midpoint}`;
         } else if(list[midpoint] < target) {
             first = midpoint + 1;
         } else {
@@ -27,7 +24,7 @@ function verify(index) {
     }
 }
 
-let numbers = [1,2,3,4]
+let numbers = [1,2,3,4,5,6,7]
 
 result = binary_serach(numbers, 1);
 verify(result);
