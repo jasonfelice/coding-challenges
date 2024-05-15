@@ -33,15 +33,26 @@ class LinkedList {
     new_node.next_node = this.head;
     this.head = new_node;
   }
+  
+  search(key) {
+    // Serach for the first node containing data that matches the key
+    // Return the node; or null if not found
+    // Take O(n) time (Linear time)
+    let current = this.head;
+    while(current) {
+      if (current.data === key) {
+        return current;
+      } else {
+        current = current.next_node;
+      }
+    }
+    return null;
+  }
 }
 
-n1 = new Node(10);
-n2 = new Node(29);
-
 l = new LinkedList();
+l.add(5);
+l.add(3);
+l.add(88);
 
-l.head = n1;
-console.log(l.size());
-l.add(5)
-l.add(9)
-console.log(l.size())
+console.log(l.search(3));
