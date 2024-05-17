@@ -69,6 +69,26 @@ class LinkedList {
         new_node.next_node = next_node;
     }
   }
+  
+  remove(key) {
+    // Removes the data that matches the key
+    let current = this.head;
+    let prev_node = null;
+    let found = false;
+    while(current && !found) {
+      if(current.data === key && current == this.head) {
+        found = true;
+        this.head = current.next_node;
+      } else if(current.data === key) {
+        found = true;
+        prev_node.next_node = current.next_node;
+      } else {
+        prev_node = current;
+        current = current.next_node;
+      }
+    }
+    return current;
+  }
 }
 
 l = new LinkedList();
@@ -76,4 +96,6 @@ l.add(5);
 l.add(3);
 l.add(88);
 l.insert(7, 1)
-console.log(l.head);
+console.log(l);
+console.log(l.remove(7));
+console.log(l)
