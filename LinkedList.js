@@ -48,11 +48,32 @@ class LinkedList {
     }
     return null;
   }
+  
+  insert(data, index) {
+    //   Inserts a new node with data at index position
+    // Takes O(1) time but finding the node takes O(n)
+    // Overall takes O(n)
+    if (index === 0) this.add(data);
+    if (index > 0) {
+        let new_node = new Node(data);
+        let position = index;
+        let current = this.head;
+        
+        while(position > 1) {
+          current = current.next_node;
+          position--;
+        }
+        let prev_node = current;
+        let next_node = current.next_node;
+        prev_node.next_node = new_node;
+        new_node.next_node = next_node;
+    }
+  }
 }
 
 l = new LinkedList();
 l.add(5);
 l.add(3);
 l.add(88);
-
-console.log(l.search(3));
+l.insert(7, 1)
+console.log(l.head);
