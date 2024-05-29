@@ -48,3 +48,16 @@ function merge(left, right) {
   }
   return l;
 }
+
+function verify_sorted(list) {
+  const n = list.length;
+  if (n === 0 || n === 1) return true;
+  
+  return (list[0] < list[1]) &&  verify_sorted(list.slice(1));
+}
+
+const list = [10,9,8,7,6,5,4,3,2,1]
+const new_list = merge_sort(list);
+console.log(verify_sorted(list));
+setTimeout(() => console.log("Now Sorting"), 500);
+setTimeout(() => console.log(verify_sorted(new_list)), 1000);
