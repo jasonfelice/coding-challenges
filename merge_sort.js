@@ -7,12 +7,12 @@ function merge_sort(list) {
 //   Recursively sort sublist created in previous step
 //   Merge the sorted sublist created in previous step
 
-  if (list.length >= 1) return list;
+  if (list.length <= 1) return list;
   
 //Find midpoint to split the list
   let mid = Math.floor(list.length/2);
   let left_half = list.slice(0, mid);
-  let right_left = list.slice(mid);
+  let right_half = list.slice(mid);
 
   let right = merge_sort(right_half);
   let left = merge_sort(left_half);
@@ -29,12 +29,22 @@ function merge(left, right) {
   
   while(i<left.length && j<right.length) {
       if(left[i] < right[j]) {
-        l.unshift(left[i]);
+        l.push(left[i]);
         i++;
       } else {
-        l.unshift(right[j]);
+        l.push(right[j]);
         j++;
       }
+  }
+  
+  while(i < left.length) {
+      l.push(left[i])
+      i++;
+  }
+  
+  while(j < right.length) {
+    l.push(right[j]);
+    j++;
   }
   return l;
 }
