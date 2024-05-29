@@ -6,9 +6,11 @@ function merge_sort(list) {
 //   Divide the midpoint of the list and divide into sublists
 //   Recursively sort sublist created in previous step
 //   Merge the sorted sublist created in previous step
+// Overall it takes O(n log n) time
 
   if (list.length <= 1) return list;
-  
+ 
+// Split works on O(k log n) time
 //Find midpoint to split the list
   let mid = Math.floor(list.length/2);
   let left_half = list.slice(0, mid);
@@ -27,6 +29,7 @@ function merge(left, right) {
   i = 0;
   j = 0;
   
+//   Works on O(n) time
   while(i<left.length && j<right.length) {
       if(left[i] < right[j]) {
         l.push(left[i]);
